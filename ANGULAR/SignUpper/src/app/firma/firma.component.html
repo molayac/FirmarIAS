@@ -1,3 +1,84 @@
-<p>
-  firma works!
-</p>
+<div class="col-lg-12">
+  <fieldset>
+    <div id="copied" *ngIf="showCopied" class="pull-right">
+      <label class="label label-success">Copiado!</label>
+      <p>Ahora puede pegar la firma en las configuraciones de su cuenta de Gmail</p>
+    </div>
+    <p>
+      <!-- <a id="copyTo" class="btn btn-sm btn-primary" (click)="copyToClipboard">Copie</a>  -->
+      Copie el contenido de la firma dentro de la configuración de su cuenta de correo. </p>
+    <hr/>
+    <div id="toCopy">
+      <table cellpadding="0" cellspacing="0" border="0" style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;">
+        <tr>
+          <td *ngIf="firma.image != null" valign="top" style="padding-top: 0; padding-bottom: 0; padding-left: 0; padding-right: 7px; border-left: 0; border-right: solid 3px #1D3193">
+            <img id="preview-image-url" [src]="firma.image" style="max-width:180px;">
+            <!--https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxcIbza-Om55fYi8XF_td1A8PyM_-PybEElZctgx6kY13g1jn3-->
+          </td>
+          <td style="padding-top: 0; padding-bottom: 0; padding-left: 12px; padding-right: 0;">
+            <table cellpadding="0" cellspacing="0" border="0" style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;">
+              <tr *ngIf="firma.nombre != ''">
+                <td colspan="4" style="padding-bottom: 5px; color: #1D3193; font-size: 18px; font-family: Arial, Helvetica, sans-serif;">{{firma.nombre}}</td>
+              </tr>
+              <tr *ngIf="firma.cargo != ''">
+                <td colspan="2" style="color: #333333; font-size: 14px; font-family: Arial, Helvetica, sans-serif;"><strong>{{firma.cargo}}</strong></td>
+              </tr>
+              <tr *ngIf="firma.empresa != ''">
+                <td colspan="2" style="color: #333333; font-size: 14px; font-family: Arial, Helvetica, sans-serif;"><strong>{{firma.empresa}}</strong></td>
+              </tr>
+              <tr *ngIf="firma.email != ''">
+                <td colspan="2" valign="top" style="vertical-align: top; width: 10px; color: #1D3193; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                  Email: &nbsp;&nbsp;
+                  <a href="mailto:'.$correo.'" style="color: #1712F3; text-decoration: none; font-weight: normal; font-size: 14px;">
+                      {{firma.email}}
+                  </a>
+                </td>
+              </tr>
+              <tr *ngIf="firma.celular != null && firma.celular != ''">
+                <td colspan="2" valign="top" style="vertical-align: top; width: 10px; color: #1D3193; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                  Móvil: &nbsp;&nbsp;
+                  <a valign="top" style="vertical-align: top; color: #333333; font-size: 14px; font-family: Arial, Helvetica, sans-serif;"
+                    id="phone">
+                          (+57) {{firma.celular}} 
+                        </a>
+                  <a valign="top" style="vertical-align: top; color: #333333; font-size: 14px; font-family: Arial, Helvetica, sans-serif;"
+                    id="ext">
+                        </a>
+                </td>
+              </tr>
+              <tr *ngIf="firma.telefono != null && firma.telefono != ''">
+                <td colspan="2" valign="top" style="vertical-align: top; width: 10px; color: #1D3193; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                  Teléfono: &nbsp;&nbsp;
+                  <a valign="top" style="vertical-align: top; color: #333333; font-size: 14px; font-family: Arial, Helvetica, sans-serif;"
+                    id="phone">
+                      (+574) {{firma.telefono}} 
+                    </a>
+                  <a valign="top" style="vertical-align: top; color: #333333; font-size: 14px; font-family: Arial, Helvetica, sans-serif;"
+                    id="ext">
+                    </a>
+                </td>
+              </tr>
+              <tr *ngIf="firma.direccion != ''">
+                <td colspan="2" style="color: #333333; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                  <a href="#" style="vertical-align: top; color: #333333; font-size: 14px; font-family: Arial, Helvetica, sans-serif;"
+                    [innerHtml]="firma.direccion"></a>
+                </td>
+              </tr>
+              <tr *ngIf="firma.web != '' || firma.facebook != '' || firma.twitter != ''">
+                <td colspan="2" style="padding-top: 5px; color: #1D3193; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">Visítanos en: &nbsp;&nbsp;
+                  <a *ngIf="firma.web != ''" href="{{firma.web}}" style="border-width:0px; border:0px; text-decoration: none;"><img width="25" height="25" style="border: none; width: 25px; max-width: 25px !important; height: 25px; max-height: 25px !important;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxxQJNSLzQaTU5TQBIjvdQ1HPaGtz2m1a-2fXlCsuFZsO3CSYPYw"></a>&nbsp;&nbsp;
+                  <a *ngIf="firma.facebook != ''" href="{{facebook}}" style="border-width:0px; border:0px; text-decoration: none;"><img width="25" height="25" style="border: none; width: 25px; max-width: 25px !important; height: 25px; max-height: 25px !important;"
+                        src="http://cdn2.hubspot.net/hubfs/184235/dev_images/signature_app/facebook_sig.png"></a>&nbsp;&nbsp;
+                  <a *ngIf="firma.twitter != ''" href="{{firma.twitter}}" style="border-width:0px; border:0px; text-decoration: none;"><img width="25" height="25" style="border: none; width: 25px; max-width: 25px !important; height: 25px; max-height: 25px !important;"
+                          src="http://cdn2.hubspot.net/hubfs/184235/dev_images/signature_app/twitter_sig.png"></a>&nbsp;&nbsp;
+                  <a *ngIf="firma.linkedin" href="{{firma.linkedin}}" style="border-width:0px; border:0px; text-decoration: none;"><img width="25" height="25" style="border: none; width: 25px; max-width: 25px !important; height: 25px; max-height: 25px !important;"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPbzIlLE_2uAUOhXPac2z72VgWrBkwc6btG3GwJOczy8hG-cgChA"></a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </fieldset>
+</div>
