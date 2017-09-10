@@ -1,3 +1,118 @@
-<p>
-  formulario works!
-</p>
+<header>
+  <div class="row">
+    <div class="col-lg-6 portfolio-item">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">
+            <a href="#">Generador de Firmas</a>
+          </h3>
+          <form [formGroup]="myForm">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Info Personal</a></li>
+              <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Info Empresarial</a></li>
+              <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Info Social</a></li>
+              <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Imagen</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="home">
+                <h3>{{tabs[0].name}}</h3>
+                <div class="form-group">
+                  <label for="">Nombre Completo</label>
+                  <input type="text" class="form-control" formControlName="nombre">
+                </div>
+                <div class="row">
+                  <div class="form-group col-sm-6">
+                    <label for="">Celular</label>
+                    <input type="text" class="form-control" formControlName="celular">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="">Teléfono</label>
+                    <input type="text" class="form-control" formControlName="telefono">
+                  </div>
+
+                </div>
+                <div class="form-group">
+                  <label for="">Email</label>
+                  <input type="text" class="form-control" formControlName="email">
+                </div>
+                <!-- <button class="btn btn-primary pull-right" (click)="nextStep()"><i class="glyphicon glyphicon-chevron-right"></i></button> -->
+              </div>
+              <div role="tabpanel" class="tab-pane" id="profile">
+                <h3>{{tabs[1].name}}</h3>
+                <div class="form-group">
+                  <label for="">Cargo</label>
+                  <input type="text" class="form-control" formControlName="cargo">
+                </div>
+                <div class="form-group">
+                  <label for="">Empresa</label>
+                  <input type="text" class="form-control" formControlName="empresa">
+                </div>
+                <div class="form-group">
+                  <label for="">Direccion (Recibe HTML Tags)</label>
+                  <input type="text" class="form-control" formControlName="direccion">
+                </div>
+                <div class="form-group">
+                  <label for="">Enlace GoogleMaps</label>
+                  <input type="text" class="form-control" formControlName="mapa">
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="messages">
+                <h3>{{tabs[2].name}}</h3>
+                <div class="form-group">
+                  <label for="">Página Web</label>
+                  <input type="text" class="form-control" formControlName="web">
+                </div>
+                <div class="form-group">
+                  <label for="">Facebook</label>
+                  <input type="text" class="form-control" formControlName="facebook">
+                </div>
+                <div class="form-group">
+                  <label for="">Twitter</label>
+                  <input type="text" class="form-control" formControlName="twitter">
+                </div>
+
+                <div class="form-group">
+                  <label for="">LinkedIn</label>
+                  <input type="text" class="form-control" formControlName="linkedin">
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="settings">
+                <h3>Agregar Imagen</h3>
+                <div class="form-group">
+                  <!-- <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            Seleccionar… <input type='file' (change)="readUrl($event)" formControlName="image">
+                        </span>
+                    </span>-->
+                  <!-- <img *ngIf="myForm.value.image != null" [src]="myForm.value.image"> -->
+                  <!-- </div> -->
+                  <div class="form-group">
+                    <label for="">URL Imagen</label>
+                    <input type="text" class="form-control" formControlName="image">
+                  </div>
+                  <!-- <button (click)="noImagen()">
+                  <i class="glyphicon glyphicon-trash"></i>
+                </button> -->
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 portfolio-item">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">
+            <a href="#">Firma generada:</a>
+          </h3>
+          <app-firma [firma]="myForm.value"></app-firma>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

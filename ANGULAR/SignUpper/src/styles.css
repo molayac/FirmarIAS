@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*! Based on
+ * Start Bootstrap - 2 Col Portfolio (https://startbootstrap.com/template-overviews/2-col-portfolio)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-2-col-portfolio/blob/master/LICENSE)
+ */
+
+ body {
+    padding-top: 54px;
+  }
+  
+  @media (min-width: 992px) {
+    body {
+      padding-top: 56px;
+    }
+  }
+  
+  .portfolio-item {
+    margin-bottom: 30px;
+  }
+  
+  .pagination {
+    margin-bottom: 30px;
+  }
+
+  .navbar-ias {
+    background-color: #060462;
+  }
+
+  .navbar-ias a {
+    color:#e1e0f6;
+  }
+
